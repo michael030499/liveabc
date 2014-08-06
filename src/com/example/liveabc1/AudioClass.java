@@ -96,12 +96,12 @@ public class AudioClass extends Activity {
 				 txtView.append("Open File error");
 			}
 			txtView.setText(MyStream);
-			play(true);
+			//play(true);
 		}//if baudio
 		else{
 			txtView.setVisibility(View.INVISIBLE);
 			viView.setVisibility(View.VISIBLE);	
-			play(false);//playvideo
+			playVideo();//playvideo
 			
 		}
 	}
@@ -136,8 +136,7 @@ public class AudioClass extends Activity {
 	}
 
 
-	private void play(boolean bAudio){
-		m_bAudio=bAudio;
+	private void playVideo(){
 		SurfaceHolder holder = viView.getHolder();
 		//holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
  		player = new MediaPlayer();
@@ -154,11 +153,7 @@ public class AudioClass extends Activity {
 				player.setDisplay(holder);
 				AssetFileDescriptor afd;
 				try {
-					if(m_bAudio)
-						afd = getAssets().openFd("Lesson"+m_index+"/"+"audio.mp3");
-					else
-						afd = getAssets().openFd("Lesson"+m_index+"/"+"video.3gp");
-
+					afd = getAssets().openFd("Lesson"+m_index+"/"+"video.3gp");
 				    player.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(), afd.getLength());
 				    player.prepareAsync();
 				    player.setOnPreparedListener(new OnPreparedListener() {
