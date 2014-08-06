@@ -42,8 +42,7 @@ public class AudioClass extends Activity {
 		super.onCreate(savedInstanceState);
 		Log.i("liveabc","Audio class startting");
 		setContentView(R.layout.activity_audio_class);
-		
-		
+ 		player = new MediaPlayer();//use mediaplayer for audio and video
 		Intent intent=getIntent();
 		Bundle b=intent.getExtras();
 		m_index=b.getInt("index");
@@ -96,7 +95,7 @@ public class AudioClass extends Activity {
 				 txtView.append("Open File error");
 			}
 			txtView.setText(MyStream);
-			//play(true);
+			playAudio();
 		}//if baudio
 		else{
 			txtView.setVisibility(View.INVISIBLE);
@@ -135,11 +134,35 @@ public class AudioClass extends Activity {
 	        }        
 	}
 
-
+	
+private void playAudio(){
+	AssetFileDescriptor afd;
+	try {
+		afd = getAssets().openFd("Lesson"+m_index+"/"+"audio.mp3");
+	    player.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(), afd.getLength());
+	    player.prepareAsync();
+	    player.setOnPreparedListener(new OnPreparedListener() {
+	 
+	     @Override
+	     public void onPrepared(MediaPlayer mp) {
+	    	Log.i("liveabc","start to play"); 
+	        mp.start();
+	     }
+	  });
+	 
+	} catch (Exception e) { e.printStackTrace();}
+	
+	
+}
+	
+/*
+ * Play Video file  from assset folder
+ */
+	
 	private void playVideo(){
 		SurfaceHolder holder = viView.getHolder();
 		//holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
- 		player = new MediaPlayer();
+
 		holder.addCallback(new SurfaceHolder.Callback() {
 			
 			@Override
