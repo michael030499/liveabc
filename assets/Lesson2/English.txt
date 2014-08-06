@@ -1,0 +1,38 @@
+﻿#E NO00>Clerk:>Those jeans are part of our fall collection. _
+NO01>They are very popular.
+#C 店員：那款牛仔褲是我們的秋季服飾， _
+現在正流行。
+
+#E NO02>Nick:>Really? They're very cool. _
+NO03>How much are they?
+#C 尼克：真的嗎？這些褲子很酷， _
+一件多少錢？
+
+#E NO04>Clerk:>They're thirty-nine ninety-nine.
+#C 店員：三十九塊九毛九。
+
+#E NO05>Nick:>That's not a bad price. _
+NO06>I'll take two pairs with a size thirty-two waist. _
+NO07>I don't need to try them on.
+#C 尼克：價錢還可以。 _
+我要兩件三十二腰的， _
+不用試穿。
+
+#E NO08>Clerk:>OK. Will that be cash or charge?
+#C 店員：好的。您要付現還是刷卡？
+
+#E NO09>Nick:>Uh, cash.
+#C 尼克：呃，付現。
+
+#E NO10>Clerk:>OK. The total comes to eighty-four seventy-seven.
+#C 店員：好的。一共是八十四塊七毛七。
+
+#E NO11>Nick:>All right. Uh-oh, I'm low on cash. _
+NO12>I'll have to use a credit card. Here you go.
+#C 尼克：好的。糟糕，我現金不夠， _
+我得刷卡了。卡在這兒。
+
+#E NO13>Clerk:>No problem. Please sign here. _
+NO14>Thank you and have a nice day!
+#C 店員：沒問題。請在這裡簽名。 _
+謝謝您，祝您有愉快的一天！

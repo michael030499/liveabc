@@ -1,0 +1,38 @@
+﻿#E NO00>Lisa:>Let's find an apartment downtown, in the shopping district!
+#C 莉莎：我們到市區找間公寓，就在購物商區吧！
+
+#E NO01>Mary:>It would be expensive, polluted, and noisy. _
+NO02>And it wouldn't be safe at night.
+#C 瑪莉：那裡會很貴、污染多，又吵， _
+而且晚上也不安全。
+
+#E NO03>Lisa:>Oh, that's right. _
+NO04>Hey, we could look out near Lakeview Park.
+#C 莉莎：喔，也對。 _
+嘿，我們可以到湖景公園附近找找。
+
+#E NO05>Mary:>That's a beautiful area. _
+NO06>Is that neighborhood safe?
+#C 瑪莉：那一區很美， _
+但那附近安全嗎？
+
+#E NO07>Lisa:>Yes, it is. _
+NO08>And it's very clean and quiet.
+#C 莉莎：安全啊， _
+而且既乾淨又安靜。
+
+#E NO09>Mary:>Is there good transportation there?
+#C 瑪莉：那裡交通方便嗎？
+
+#E NO10>Lisa:>Sure. Lots of buses go by, and it's on the MRT line.
+#C 莉莎：當然。有很多公車經過，而且就在捷運線上。
+
+#E NO11>Mary:>Is it a convenient neighborhood?
+#C 瑪莉：那裡居家方便嗎？
+
+#E NO12>Lisa:>Yes. There are lots of shops and a department store nearby.
+#C 莉莎：方便。附近有很多商店，還有一家百貨公司。
+
+#E NO13>Mary:>Well, I think that's the place we ought to look.
+#C 瑪莉：嗯，我想我們應該過去看看。
+

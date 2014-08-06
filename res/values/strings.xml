@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LiveABC1</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_lesson">Lesson</string>
+
+    <string-array name="lesson_list">
+        <item>Lesson1</item>
+        <item>Lesson2</item>
+        <item>Lesson3</item>
+     </string-array>
+
+    <string name="title_activity_audio_class">AudioClass</string>
+
+</resources>

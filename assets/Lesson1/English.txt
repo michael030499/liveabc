@@ -1,0 +1,37 @@
+﻿This is Lesson1
+E NO00>Lisa:>Unless there is a sale on, I don't think there's anything in here that I can afford.
+#C 莉莎：除非有打折，我想這裡頭沒有一樣是我買得起的！
+
+#E NO01>Clerk:>Good afternoon. Is there something I can help you with?
+#C 店員：午安。我可以幫您服務嗎？
+
+#E NO02>Lisa:>Uh, yes. I'd like to have a look at that gold bracelet, please.
+#C 莉莎：呃，是的。麻煩妳，我想看看那只金手鍊。
+
+#E NO03>Clerk:>OK. Here you go. _
+NO04>Let me help you put it on.
+#C 店員：好的。拿來了。 _
+我來幫您戴上。
+
+#E NO05>Lisa:>Thank you. _
+NO06>Wow! I feel like a million dollars! _
+NO07>What do you think, Nick?
+#C 莉莎：謝謝。 _
+哇！我感覺棒透了！ _
+尼克，你覺得呢？
+
+#E NO08>Nick:>I think that bracelet will cost you a million dollars!
+#C 尼克：我覺得那只手鍊會讓妳破產！
+
+#E NO09>Lisa:>Oh. Excuse me, miss, how much is this bracelet?
+#C 莉莎：喔。請問，小姐，這只手鍊多少錢？
+
+#E NO10>Clerk:>It's two hundred and eighty dollars plus tax. _
+NO11>Shall I wrap it for you?
+#C 店員：二百八十元，稅金外加。 _
+要不要幫您包起來？
+
+#E NO12>Lisa:>Two hundred and eighty dollars?! _
+NO13>Uh, no thanks. I'd like to think it over.
+#C 莉莎：二百八十元？！ _
+呃，不，謝了。我再考慮一下。

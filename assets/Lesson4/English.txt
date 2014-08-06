@@ -1,0 +1,23 @@
+﻿This is Lesson 4
+Flag = Flag-US
+Language = English
+English = English
+French = Français
+Info = Localization example
+Sound = Sound
+Music = Music
+Desc = English localization
+Paragraph = This example shows how to implement localization using NGUI. 
+It is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
+It is under constructionIt is under constructionIt is under constructionIt is under construction
