@@ -1074,6 +1074,8 @@ containing a value of this type.
         public static final int background=0x7f020057;
         public static final int ic_launcher=0x7f020058;
         public static final int light_blue_background_5489=0x7f020059;
+        public static final int pause=0x7f02005a;
+        public static final int play=0x7f02005b;
     }
     public static final class id {
         public static final int action_bar=0x7f06001c;
@@ -1107,6 +1109,8 @@ containing a value of this type.
         public static final int icon=0x7f06002a;
         public static final int ifRoom=0x7f06000a;
         public static final int image=0x7f060027;
+        public static final int item1=0x7f060041;
+        public static final int item2=0x7f060042;
         public static final int listMode=0x7f060001;
         public static final int listView1=0x7f060040;
         public static final int list_item=0x7f060029;
@@ -1196,6 +1200,9 @@ containing a value of this type.
         public static final int activity_lesson=0x7f030019;
         public static final int activity_main=0x7f03001a;
         public static final int support_simple_spinner_dropdown_item=0x7f03001b;
+    }
+    public static final class menu {
+        public static final int menu_help=0x7f0e0000;
     }
     public static final class raw {
         public static final int live3gp=0x7f050000;

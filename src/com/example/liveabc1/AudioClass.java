@@ -16,6 +16,7 @@ import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.View;
@@ -36,6 +37,13 @@ public class AudioClass extends Activity {
     private SurfaceHolder holder ;
     private Button btnPlay,btnPause;
     
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_help, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
