@@ -1109,8 +1109,10 @@ containing a value of this type.
         public static final int icon=0x7f06002a;
         public static final int ifRoom=0x7f06000a;
         public static final int image=0x7f060027;
-        public static final int item1=0x7f060041;
-        public static final int item2=0x7f060042;
+        public static final int imageView1=0x7f060041;
+        public static final int item1=0x7f060043;
+        public static final int item2=0x7f060044;
+        public static final int lessontextView=0x7f06003d;
         public static final int listMode=0x7f060001;
         public static final int listView1=0x7f060040;
         public static final int list_item=0x7f060029;
@@ -1138,7 +1140,7 @@ containing a value of this type.
         public static final int split_action_bar=0x7f06001e;
         public static final int submit_area=0x7f060039;
         public static final int tabMode=0x7f060002;
-        public static final int textView1=0x7f06003d;
+        public static final int textView1=0x7f060042;
         public static final int title=0x7f06002b;
         public static final int top_action_bar=0x7f060020;
         public static final int up=0x7f060021;
@@ -1199,7 +1201,8 @@ containing a value of this type.
         public static final int activity_audio_class=0x7f030018;
         public static final int activity_lesson=0x7f030019;
         public static final int activity_main=0x7f03001a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
+        public static final int listitem=0x7f03001b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
     }
     public static final class menu {
         public static final int menu_help=0x7f0e0000;

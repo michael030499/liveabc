@@ -2,6 +2,10 @@ package com.example.liveabc1;
 
 //import tw.android.MainActivity;
 //import tw.android.R;
+
+
+
+
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -21,7 +25,8 @@ public class Lesson extends Activity {
 	private Button btnAudioLesson;
 	private Button btnVideoLesson;
 	private int m_index=100;//index to column slection,100 mean not been selected
-	
+	LessonAdapter adapter;
+
 	
 	
 	
@@ -37,16 +42,16 @@ public class Lesson extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_lesson);
-		//String str[]={"Lesson1","Lesson2","Lesson3","Lesson4","Lesson5","Lesson6" };
-		//ArrayAdapter<String> apapter =new ArrayAdapter<String> (this,android.R.layout.simple_list_item_1,str);
-		//setListAdapter(apapter);
+		String str[]={"Lesson1","Lesson2","Lesson3"};
 		mListLesson = (ListView) findViewById(R.id.listView1);
-		ArrayAdapter<CharSequence> arrAdapRegion = 
-				ArrayAdapter.createFromResource(Lesson.this, 
-						R.array.lesson_list, 
-						android.R.layout.simple_list_item_single_choice);
-		mListLesson.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-		mListLesson.setAdapter(arrAdapRegion);
+        adapter=new LessonAdapter(this, str);
+
+//		ArrayAdapter<CharSequence> arrAdapRegion = 
+//				ArrayAdapter.createFromResource(Lesson.this, 
+//						R.array.lesson_list, 
+//						android.R.layout.simple_list_item_single_choice);
+//		mListLesson.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+		mListLesson.setAdapter(adapter);
 		mListLesson.setOnItemClickListener (listViewLessonOnItemClick );
 		btnAudioLesson=(Button)findViewById(R.id.butStart); 
 		btnVideoLesson=(Button)findViewById(R.id.butPause);

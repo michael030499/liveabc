@@ -269,8 +269,10 @@ int id homeAsUp 0x7f060005
 int id icon 0x7f06002a
 int id ifRoom 0x7f06000a
 int id image 0x7f060027
-int id item1 0x7f060041
-int id item2 0x7f060042
+int id imageView1 0x7f060041
+int id item1 0x7f060043
+int id item2 0x7f060044
+int id lessontextView 0x7f06003d
 int id listMode 0x7f060001
 int id listView1 0x7f060040
 int id list_item 0x7f060029
@@ -298,7 +300,7 @@ int id showTitle 0x7f060006
 int id split_action_bar 0x7f06001e
 int id submit_area 0x7f060039
 int id tabMode 0x7f060002
-int id textView1 0x7f06003d
+int id textView1 0x7f060042
 int id title 0x7f06002b
 int id top_action_bar 0x7f060020
 int id up 0x7f060021
@@ -333,7 +335,8 @@ int layout abc_simple_decor 0x7f030017
 int layout activity_audio_class 0x7f030018
 int layout activity_lesson 0x7f030019
 int layout activity_main 0x7f03001a
-int layout support_simple_spinner_dropdown_item 0x7f03001b
+int layout listitem 0x7f03001b
+int layout support_simple_spinner_dropdown_item 0x7f03001c
 int menu menu_help 0x7f0e0000
 int raw live3gp 0x7f050000
 int raw sound 0x7f050001

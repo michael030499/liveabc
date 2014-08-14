@@ -57,7 +57,7 @@ public class AudioClass extends Activity {
 		m_bAudio=b.getBoolean("bAudio");
 		Log.i("liveabc",new Integer(m_index).toString());
 		getActionBar().setTitle("Lesson"+m_index);
-		txtView=(TextView) findViewById(R.id.textView1);
+		txtView=(TextView) findViewById(R.id.lessontextView);
 		viView= (VideoView)findViewById(R.id.videoView1); 
 		btnPlay=(Button)findViewById(R.id.butStart);
 		btnPause=(Button)findViewById(R.id.butPause);

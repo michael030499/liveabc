@@ -14,7 +14,7 @@
         android:text="Start" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/lessontextView"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/butStart"
