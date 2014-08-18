@@ -18,13 +18,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 
 public class Lesson extends Activity {
 	private ListView mListLesson;
 	private Button btnAudioLesson;
 	private Button btnVideoLesson;
-	private int m_index=100;//index to column slection,100 mean not been selected
+	private CheckBox chkboxVideo;
+	public  static int m_index=100;//index to column slection,100 mean not been selected
+	private boolean baudio;//video or audio
 	LessonAdapter adapter;
 
 	
@@ -55,8 +58,9 @@ public class Lesson extends Activity {
 		mListLesson.setOnItemClickListener (listViewLessonOnItemClick );
 		btnAudioLesson=(Button)findViewById(R.id.butStart); 
 		btnVideoLesson=(Button)findViewById(R.id.butPause);
-		btnAudioLesson.setOnClickListener(btnAudioOnClick);
-		btnVideoLesson.setOnClickListener(btnAudioOnClick);
+		chkboxVideo=(CheckBox)findViewById(R.id.checkBoxVideo);		
+		//btnAudioLesson.setOnClickListener(btnAudioOnClick);
+		//btnVideoLesson.setOnClickListener(btnAudioOnClick);
 	}
 	
 	private View.OnClickListener btnAudioOnClick=new View.OnClickListener() {
@@ -64,7 +68,7 @@ public class Lesson extends Activity {
 		@Override
 		public void onClick(View v) {
 			String displayString="You press :"; 
-			boolean baudio=btnAudioLesson.isPressed();
+			baudio=btnAudioLesson.isPressed();
 			displayString=displayString+baudio;
 			Log.i("liveabc",displayString);
 			Bundle data=new Bundle();
@@ -86,9 +90,19 @@ public class Lesson extends Activity {
 				long id) {
 			
 			m_index=position+1;
-			Log.i("liveabc","you choice:");
+			Log.i("liveabc","your sel:");
 			Log.i("liveabc",new Integer(position).toString());
-			System.out.println("you press "+ position);
+			mListLesson.setItemChecked(position, true);
+			mListLesson.setSelection(position);
+			baudio=!(chkboxVideo.isChecked());
+			Bundle data=new Bundle();
+			Intent intent=new Intent(Lesson.this,AudioClass.class);
+			data.putInt("index", m_index);//list start with 0;
+			data.putBoolean("bAudio", baudio);
+			intent.putExtras(data);
+			Log.i("liveabc","Try start audio class");
+			startActivity(intent);
+			
 		}
 	
 	

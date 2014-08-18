@@ -861,10 +861,14 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f070002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f080003;
+        public static final int abc_search_url_text_holo=0x7f080007;
         public static final int abc_search_url_text_normal=0x7f080000;
         public static final int abc_search_url_text_pressed=0x7f080002;
         public static final int abc_search_url_text_selected=0x7f080001;
+        public static final int list_view_item_bg_color_b=0x7f080005;
+        public static final int list_view_item_bg_color_g=0x7f080004;
+        public static final int list_view_item_bg_color_normal=0x7f080006;
+        public static final int list_view_item_bg_color_r=0x7f080003;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1074,8 +1078,9 @@ containing a value of this type.
         public static final int background=0x7f020057;
         public static final int ic_launcher=0x7f020058;
         public static final int light_blue_background_5489=0x7f020059;
-        public static final int pause=0x7f02005a;
-        public static final int play=0x7f02005b;
+        public static final int list_view_selector=0x7f02005a;
+        public static final int pause=0x7f02005b;
+        public static final int play=0x7f02005c;
     }
     public static final class id {
         public static final int action_bar=0x7f06001c;
@@ -1094,6 +1099,7 @@ containing a value of this type.
         public static final int beginning=0x7f060011;
         public static final int butPause=0x7f06003f;
         public static final int butStart=0x7f06003c;
+        public static final int checkBoxVideo=0x7f060041;
         public static final int checkbox=0x7f06002d;
         public static final int collapseActionView=0x7f06000d;
         public static final int default_activity_button=0x7f060028;
@@ -1109,9 +1115,9 @@ containing a value of this type.
         public static final int icon=0x7f06002a;
         public static final int ifRoom=0x7f06000a;
         public static final int image=0x7f060027;
-        public static final int imageView1=0x7f060041;
-        public static final int item1=0x7f060043;
-        public static final int item2=0x7f060044;
+        public static final int imageView1=0x7f060042;
+        public static final int item1=0x7f060044;
+        public static final int item2=0x7f060045;
         public static final int lessontextView=0x7f06003d;
         public static final int listMode=0x7f060001;
         public static final int listView1=0x7f060040;
@@ -1140,7 +1146,7 @@ containing a value of this type.
         public static final int split_action_bar=0x7f06001e;
         public static final int submit_area=0x7f060039;
         public static final int tabMode=0x7f060002;
-        public static final int textView1=0x7f060042;
+        public static final int textView1=0x7f060043;
         public static final int title=0x7f06002b;
         public static final int top_action_bar=0x7f060020;
         public static final int up=0x7f060021;

@@ -3,8 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}"
-    android:background="@drawable/background" >
+    android:background="@drawable/background">
 
+    <!--android:background="@drawable/list_view_selector"  -->        
+    <!-- android:background="@drawable/background" -->
+    
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
@@ -12,7 +15,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="204dp">
-   
+    	   
         
         <!-- 
         android:choiceMode="singleChoice"
@@ -28,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="朗讀" />
+        android:text="朗讀"
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/butPause"
@@ -36,6 +40,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:text="影音"
+        android:visibility="invisible" />
+
+    <CheckBox
+        android:id="@+id/checkBoxVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:text="影音" />
 
 </RelativeLayout>
