@@ -276,12 +276,12 @@ int id icon 0x7f06002a
 int id ifRoom 0x7f06000a
 int id image 0x7f060027
 int id imageView1 0x7f060042
-int id item1 0x7f060044
 int id item2 0x7f060045
 int id lessontextView 0x7f06003d
 int id listMode 0x7f060001
 int id listView1 0x7f060040
 int id list_item 0x7f060029
+int id menuItemFont 0x7f060044
 int id middle 0x7f060012
 int id never 0x7f060009
 int id none 0x7f060010
@@ -361,7 +361,9 @@ int string abc_shareactionprovider_share_with 0x7f0b000c
 int string abc_shareactionprovider_share_with_application 0x7f0b000b
 int string app_name 0x7f0b000d
 int string hello_world 0x7f0b000e
-int string title_activity_audio_class 0x7f0b0010
+int string menu_change_fong_small 0x7f0b0011
+int string menu_change_font_big 0x7f0b0010
+int string title_activity_audio_class 0x7f0b0012
 int string title_activity_lesson 0x7f0b000f
 int style AppBaseTheme 0x7f0c008b
 int style AppTheme 0x7f0c008c

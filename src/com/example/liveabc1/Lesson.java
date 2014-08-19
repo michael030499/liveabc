@@ -26,17 +26,50 @@ public class Lesson extends Activity {
 	private Button btnAudioLesson;
 	private Button btnVideoLesson;
 	private CheckBox chkboxVideo;
-	public  static int m_index=100;//index to column slection,100 mean not been selected
 	private boolean baudio;//video or audio
+	public  static int m_index=100;//index to column slection,100 mean not been selected
+	static boolean bfontSizeBig=false;//decide the font to be big or small size
 	LessonAdapter adapter;
 
 	
 	
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onMenuItemSelected(int, android.view.MenuItem)
+	 */
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		// TODO Auto-generated method stub
+		
+		switch (item.getItemId ()) { 
+			case R.id.menuItemFont: 
+				if(bfontSizeBig){
+					item.setTitle (getString(R.string.menu_change_fong_small));
+					bfontSizeBig=false;
+				}//end if m_bfontSizeBig	
+				else{
+					item.setTitle (getString(R.string.menu_change_font_big));
+					bfontSizeBig=true;									
+				}
+					
+				break;
+		}		
+		return super.onMenuItemSelected(featureId, item);
+	}
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_help, menu);
+        MenuItem itemFont=menu.getItem(0);
+		if(bfontSizeBig){
+			itemFont.setTitle (getString(R.string.menu_change_fong_small));
+		}//end if m_bfontSizeBig	
+		else{
+			itemFont.setTitle (getString(R.string.menu_change_font_big));
+		}
+			
 		return super.onCreateOptionsMenu(menu);
 	}
 

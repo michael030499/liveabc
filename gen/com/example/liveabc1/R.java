@@ -1116,12 +1116,12 @@ containing a value of this type.
         public static final int ifRoom=0x7f06000a;
         public static final int image=0x7f060027;
         public static final int imageView1=0x7f060042;
-        public static final int item1=0x7f060044;
         public static final int item2=0x7f060045;
         public static final int lessontextView=0x7f06003d;
         public static final int listMode=0x7f060001;
         public static final int listView1=0x7f060040;
         public static final int list_item=0x7f060029;
+        public static final int menuItemFont=0x7f060044;
         public static final int middle=0x7f060012;
         public static final int never=0x7f060009;
         public static final int none=0x7f060010;
@@ -1260,7 +1260,9 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f0b000b;
         public static final int app_name=0x7f0b000d;
         public static final int hello_world=0x7f0b000e;
-        public static final int title_activity_audio_class=0x7f0b0010;
+        public static final int menu_change_fong_small=0x7f0b0011;
+        public static final int menu_change_font_big=0x7f0b0010;
+        public static final int title_activity_audio_class=0x7f0b0012;
         public static final int title_activity_lesson=0x7f0b000f;
     }
     public static final class style {

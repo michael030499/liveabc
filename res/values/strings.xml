@@ -4,7 +4,9 @@
     <string name="app_name">LiveABC1</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_lesson">Lesson</string>
-
+    <string name="menu_change_font_big">改變成大字形</string>
+    <string name="menu_change_fong_small">改變成小字形</string>
+    
     <string-array name="lesson_list">
         <item>Lesson1</item>
         <item>Lesson2</item>

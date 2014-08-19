@@ -84,6 +84,12 @@ public class AudioClass extends Activity {
 			//viView.setVisibility(View.INVISIBLE);
 			txtView.setVisibility(View.VISIBLE);
 			txtView.append("==========Audio Class: "+m_index+"\n");	
+			//float fontsize=txtView.getTextSize();
+			//Log.i("liveavc","fontsize"+fontsize);
+			if(Lesson.bfontSizeBig)
+				txtView.setTextSize(25);
+			else
+				txtView.setTextSize(22);			
 			//get txtfile form asset
 			m_asManger=getAssets();	
 			try

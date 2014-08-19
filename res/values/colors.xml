@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="list_view_item_bg_color_r">#ffff0000</color>
+    <color name="list_view_item_bg_color_g">#ff00ff00</color>
+    <color name="list_view_item_bg_color_b">#ff0000ff</color>
+    <color name="list_view_item_bg_color_normal">#00cccccc</color>
+</resources>
