@@ -361,8 +361,8 @@ int string abc_shareactionprovider_share_with 0x7f0b000c
 int string abc_shareactionprovider_share_with_application 0x7f0b000b
 int string app_name 0x7f0b000d
 int string hello_world 0x7f0b000e
-int string menu_change_fong_small 0x7f0b0011
 int string menu_change_font_big 0x7f0b0010
+int string menu_change_font_small 0x7f0b0011
 int string title_activity_audio_class 0x7f0b0012
 int string title_activity_lesson 0x7f0b000f
 int style AppBaseTheme 0x7f0c008b

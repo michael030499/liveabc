@@ -44,11 +44,11 @@ public class Lesson extends Activity {
 		switch (item.getItemId ()) { 
 			case R.id.menuItemFont: 
 				if(bfontSizeBig){
-					item.setTitle (getString(R.string.menu_change_fong_small));
+					item.setTitle (getString(R.string.menu_change_font_big));
 					bfontSizeBig=false;
 				}//end if m_bfontSizeBig	
 				else{
-					item.setTitle (getString(R.string.menu_change_font_big));
+					item.setTitle (getString(R.string.menu_change_font_small));
 					bfontSizeBig=true;									
 				}
 					
@@ -64,7 +64,7 @@ public class Lesson extends Activity {
         inflater.inflate(R.menu.menu_help, menu);
         MenuItem itemFont=menu.getItem(0);
 		if(bfontSizeBig){
-			itemFont.setTitle (getString(R.string.menu_change_fong_small));
+			itemFont.setTitle (getString(R.string.menu_change_font_small));
 		}//end if m_bfontSizeBig	
 		else{
 			itemFont.setTitle (getString(R.string.menu_change_font_big));
