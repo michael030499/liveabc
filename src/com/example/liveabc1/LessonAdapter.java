@@ -19,8 +19,8 @@ public class LessonAdapter  extends BaseAdapter {
 	   private Activity activity;//list view activity
        private String[] m_listItemString;
 	   private static LayoutInflater inflater=null;
-	    
-	    public LessonAdapter (Activity a, String[] lessonString) {
+	   private int  selPosition; 
+	   public LessonAdapter (Activity a, String[] lessonString) {
 	        activity = a;
 	        m_listItemString=lessonString;
 	        inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -48,18 +48,30 @@ public class LessonAdapter  extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-			Log.i("liveabc","getview: "+position+"select pos:"+Lesson.m_index);			
+			Log.i("liveabc","Entergetview: "+position+"select pos:"+Lesson.m_index);			
 			View vi=convertView;
-	        if(convertView==null)
+	        if(convertView==null){
 	            vi = inflater.inflate(R.layout.listitem, null);
-	        int selPosition=position+1;
-	        TextView text=(TextView)vi.findViewById(R.id.textView1);
-	        ImageView imageView=(ImageView)vi.findViewById(R.id.imageView1);
-	        CheckBox  lessonChkBox=(CheckBox)vi.findViewById(R.id.checkbox);
-        	//lessonChkBox.setText("Check");//just crash for no reason
-	        text.setText("Lesson"+selPosition);//TBC why it will get NULL some time
-	        if((convertView!=null)&&(imageView!=null))
-	        	loadImage(imageView,convertView, selPosition );
+		        selPosition=position+1;
+		        TextView text=(TextView)vi.findViewById(R.id.textView1);
+		        ImageView imageView=(ImageView)vi.findViewById(R.id.imageView1);
+		        text.setText("Lesson"+selPosition);//TBC why it will get NULL some time
+		        if((imageView!=null)){
+	        		loadImage(imageView,vi, selPosition );	        	
+		        }//end if 	convertView
+
+	            Log.i("liveabc","inflate item Layout" );
+	            return vi;
+	        }    
+//	        int selPosition=position+1;
+//	        TextView text=(TextView)vi.findViewById(R.id.textView1);
+//	        ImageView imageView=(ImageView)vi.findViewById(R.id.imageView1);
+//        	//lessonChkBox.setText("Check");//just crash for no reason
+//	        text.setText("Lesson"+selPosition);//TBC why it will get NULL some time
+//	        if((convertView!=null)&&(imageView!=null)){
+//	        	//if (imageView.getDrawable()==null)//load image only no image been load
+//	        		loadImage(imageView,convertView, selPosition );	        	
+//	        }//end if 	convertView
 	        return vi;
 	}
 
@@ -71,7 +83,7 @@ public class LessonAdapter  extends BaseAdapter {
 		final int THUMBNAIL_HEIGHT = 48;
 		final int THUMBNAIL_WIDTH = 66;
 		Bitmap imageBitmap;
-		//Log.i("liveabc","loadimag for lesson"+indexLesson );
+		Log.i("liveabc","loadimag for lesson"+indexLesson );
 		//imageBitmap = BitmapFactory.decodeByteArray(mImageData, 0, mImageData.length);
 		switch(indexLesson){
 			case 1:
