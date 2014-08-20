@@ -3,6 +3,8 @@ package com.example.liveabc1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,18 +48,60 @@ public class LessonAdapter  extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-			Log.i("liveabc","getview"+position+"selpos:"+Lesson.m_index);			
+			Log.i("liveabc","getview: "+position+"select pos:"+Lesson.m_index);			
 			View vi=convertView;
 	        if(convertView==null)
 	            vi = inflater.inflate(R.layout.listitem, null);
-	        int selPosition=position++;
+	        int selPosition=position+1;
 	        TextView text=(TextView)vi.findViewById(R.id.textView1);
-	        ImageView image=(ImageView)vi.findViewById(R.id.image);
+	        ImageView imageView=(ImageView)vi.findViewById(R.id.imageView1);
 	        CheckBox  lessonChkBox=(CheckBox)vi.findViewById(R.id.checkbox);
         	//lessonChkBox.setText("Check");//just crash for no reason
-	        text.setText("Lesson"+selPosition);
-	        //imageLoader.DisplayImage(data[position], image);
+	        text.setText("Lesson"+selPosition);//TBC why it will get NULL some time
+	        if((convertView!=null)&&(imageView!=null))
+	        	loadImage(imageView,convertView, selPosition );
 	        return vi;
 	}
 
+	/*
+	 * Change the image to the size specify by THUMBNAIL_HEIGHT/WIDTH and load to imageView
+	 */
+	private void loadImage(ImageView imview, View view ,int indexLesson){
+		
+		final int THUMBNAIL_HEIGHT = 48;
+		final int THUMBNAIL_WIDTH = 66;
+		Bitmap imageBitmap;
+		//Log.i("liveabc","loadimag for lesson"+indexLesson );
+		//imageBitmap = BitmapFactory.decodeByteArray(mImageData, 0, mImageData.length);
+		switch(indexLesson){
+			case 1:
+				 imageBitmap = BitmapFactory.decodeResource(view.getContext().getResources(), R.drawable.lesson1);
+				
+				break;
+			case 2:
+				 imageBitmap = BitmapFactory.decodeResource(view.getContext().getResources(), R.drawable.lesson2);
+				
+				break;
+				
+			case 3:
+				 imageBitmap = BitmapFactory.decodeResource(view.getContext().getResources(), R.drawable.lesson3);				
+			
+				break;
+		
+			default:
+				return;//no support item call. strange
+		}
+
+		Float width  = new Float(imageBitmap.getWidth());
+		Float height = new Float(imageBitmap.getHeight());
+		Float ratio = width/height;
+		imageBitmap = Bitmap.createScaledBitmap(imageBitmap, (int)(THUMBNAIL_HEIGHT*ratio), THUMBNAIL_HEIGHT, false);
+
+		int padding = (THUMBNAIL_WIDTH - imageBitmap.getWidth())/2;
+		imview.setPadding(padding, 0, padding, 0);
+		imview.setImageBitmap(imageBitmap);
+		view.setMinimumHeight(120);//tbc
+		
+	}
+	
 }
