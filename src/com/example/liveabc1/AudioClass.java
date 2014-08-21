@@ -65,8 +65,14 @@ public class AudioClass extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if(!player.isPlaying()){
-					player.start();
+				try {
+					if(!player.isPlaying()){
+						player.start();
+					}
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					Log.i("liveabc","Player error start error");
+					e.printStackTrace();
 				}
 			}
 		});
@@ -129,6 +135,8 @@ public class AudioClass extends Activity {
 	protected void onPause() {
 		// TODO Auto-generated method stub
 		super.onPause();
+		Log.i("liveabc","Audioclass onPause");
+
 	      if(player != null){
 	            player.stop();//stop play while not visible
 	        }       	
@@ -142,9 +150,10 @@ public class AudioClass extends Activity {
 	 */
 	@Override
 	protected void onStop() {
+		Log.i("liveabc","Audioclass onStop");		
 		super.onStop();
 	      if(player != null){
-	            player.release();
+	            //player.release();//remove to fix the issue switch App
 	        }        
 	}
 

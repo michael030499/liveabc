@@ -1,5 +1,6 @@
 TBD
-. lesson listview perfromance
+. lesson listview perfromance: 0821
+. fix bug while swap app while play video
 . list View item height dynamic setting
 . Fix font size reverse issue,Add font size to preference 
 . Help menu reorg. ( put to one class?)
