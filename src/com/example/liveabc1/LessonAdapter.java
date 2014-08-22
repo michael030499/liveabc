@@ -56,22 +56,15 @@ public class LessonAdapter  extends BaseAdapter {
 		        TextView text=(TextView)vi.findViewById(R.id.textView1);
 		        ImageView imageView=(ImageView)vi.findViewById(R.id.imageView1);
 		        text.setText("Lesson"+selPosition);//TBC why it will get NULL some time
+		        text.setTextSize(38);
+		       // float temp=text.getTextSize();
+	           // Log.i("liveabc","fontSize"+temp);		        
 		        if((imageView!=null)){
 	        		loadImage(imageView,vi, selPosition );	        	
 		        }//end if 	convertView
-
-	            Log.i("liveabc","inflate item Layout" );
+	            Log.i("liveabc","inflate Layout");
 	            return vi;
 	        }    
-//	        int selPosition=position+1;
-//	        TextView text=(TextView)vi.findViewById(R.id.textView1);
-//	        ImageView imageView=(ImageView)vi.findViewById(R.id.imageView1);
-//        	//lessonChkBox.setText("Check");//just crash for no reason
-//	        text.setText("Lesson"+selPosition);//TBC why it will get NULL some time
-//	        if((convertView!=null)&&(imageView!=null)){
-//	        	//if (imageView.getDrawable()==null)//load image only no image been load
-//	        		loadImage(imageView,convertView, selPosition );	        	
-//	        }//end if 	convertView
 	        return vi;
 	}
 
@@ -80,8 +73,8 @@ public class LessonAdapter  extends BaseAdapter {
 	 */
 	private void loadImage(ImageView imview, View view ,int indexLesson){
 		
-		final int THUMBNAIL_HEIGHT = 48;
-		final int THUMBNAIL_WIDTH = 66;
+		final int THUMBNAIL_HEIGHT = 120;
+		final int THUMBNAIL_WIDTH = 120;
 		Bitmap imageBitmap;
 		Log.i("liveabc","loadimag for lesson"+indexLesson );
 		//imageBitmap = BitmapFactory.decodeByteArray(mImageData, 0, mImageData.length);
@@ -112,7 +105,7 @@ public class LessonAdapter  extends BaseAdapter {
 		int padding = (THUMBNAIL_WIDTH - imageBitmap.getWidth())/2;
 		imview.setPadding(padding, 0, padding, 0);
 		imview.setImageBitmap(imageBitmap);
-		view.setMinimumHeight(120);//tbc
+		view.setMinimumHeight(200);//tbc
 		
 	}
 	

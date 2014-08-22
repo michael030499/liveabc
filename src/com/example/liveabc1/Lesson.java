@@ -8,6 +8,7 @@ package com.example.liveabc1;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,7 +29,8 @@ public class Lesson extends Activity {
 	private CheckBox chkboxVideo;
 	private boolean baudio;//video or audio
 	public  static int m_index=100;//index to column slection,100 mean not been selected
-	static boolean bfontSizeBig=false;//decide the font to be big or small size
+
+
 	LessonAdapter adapter;
 
 	
@@ -39,21 +41,9 @@ public class Lesson extends Activity {
 	 */
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		// TODO Auto-generated method stub
-		
-		switch (item.getItemId ()) { 
-			case R.id.menuItemFont: 
-				if(bfontSizeBig){
-					item.setTitle (getString(R.string.menu_change_font_big));
-					bfontSizeBig=false;
-				}//end if m_bfontSizeBig	
-				else{
-					item.setTitle (getString(R.string.menu_change_font_small));
-					bfontSizeBig=true;									
-				}
-					
-				break;
-		}		
+	    Context myContext=getApplicationContext();
+		Help.helpMenuHander(featureId,item, myContext );
+
 		return super.onMenuItemSelected(featureId, item);
 	}
 
@@ -63,7 +53,7 @@ public class Lesson extends Activity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_help, menu);
         MenuItem itemFont=menu.getItem(0);
-		if(bfontSizeBig){
+		if(AudioClass.bfontSizeBig){
 			itemFont.setTitle (getString(R.string.menu_change_font_small));
 		}//end if m_bfontSizeBig	
 		else{

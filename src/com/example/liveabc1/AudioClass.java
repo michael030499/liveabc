@@ -6,6 +6,7 @@ import java.io.InputStream;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
@@ -34,16 +35,37 @@ public class AudioClass extends Activity {
     private String MyStream;//File data container
     private boolean m_bAudio;//play audio or video
     private MediaPlayer player;
-    private SurfaceHolder holder ;
+    //private SurfaceHolder holder;
     private Button btnPlay,btnPause;
-    
+	public static boolean bfontSizeBig=false;//decide the font to be big or small size
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_help, menu);
+	    Context myContext=getApplicationContext();
+        Help.createMenu(menu, myContext);
 		return super.onCreateOptionsMenu(menu);
 	}
+	
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onMenuItemSelected(int, android.view.MenuItem)
+	 */
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+	    Context myContext=getApplicationContext();
+		Help.helpMenuHander(featureId,item, myContext );
+		if(bfontSizeBig)
+			txtView.setTextSize(25);
+		else
+			txtView.setTextSize(22);
+		return super.onMenuItemSelected(featureId, item);
+
+
+	}
+
+
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,12 +109,11 @@ public class AudioClass extends Activity {
 		});
 		
 		if(m_bAudio){
-			//viView.setVisibility(View.INVISIBLE);
 			txtView.setVisibility(View.VISIBLE);
 			txtView.append("==========Audio Class: "+m_index+"\n");	
 			//float fontsize=txtView.getTextSize();
 			//Log.i("liveavc","fontsize"+fontsize);
-			if(Lesson.bfontSizeBig)
+			if(bfontSizeBig)
 				txtView.setTextSize(25);
 			else
 				txtView.setTextSize(22);			

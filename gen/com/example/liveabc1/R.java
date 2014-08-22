@@ -1082,8 +1082,9 @@ containing a value of this type.
         public static final int lesson3=0x7f02005b;
         public static final int light_blue_background_5489=0x7f02005c;
         public static final int list_view_selector=0x7f02005d;
-        public static final int pause=0x7f02005e;
-        public static final int play=0x7f02005f;
+        public static final int liveabc=0x7f02005e;
+        public static final int pause=0x7f02005f;
+        public static final int play=0x7f020060;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f060042;
