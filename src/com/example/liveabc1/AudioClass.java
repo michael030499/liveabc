@@ -12,6 +12,7 @@ import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
@@ -78,7 +79,9 @@ public class AudioClass extends Activity {
 		m_index=b.getInt("index");
 		m_bAudio=b.getBoolean("bAudio");
 		Log.i("liveabc",new Integer(m_index).toString());
-		getActionBar().setTitle("Lesson"+m_index);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
+			getActionBar().setTitle("Lesson"+m_index);
+		}//make sure older version of android 
 		txtView=(TextView) findViewById(R.id.lessontextView);
 		viView= (VideoView)findViewById(R.id.videoView1); 
 		btnPlay=(Button)findViewById(R.id.butStart);
