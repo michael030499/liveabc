@@ -14,6 +14,8 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -38,8 +40,48 @@ public class AudioClass extends Activity {
     private MediaPlayer player;
     //private SurfaceHolder holder;
     private Button btnPlay,btnPause;
+    private Thread m_monitorThread;
 	public static boolean bfontSizeBig=false;//decide the font to be big or small size
 
+	
+    private Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            
+            //txtCount.setText(Integer.toString(msg.getData().getInt("count", 0)));
+        }
+    };
+
+	
+	class MonitorThread extends Thread {
+
+	
+		@Override
+		public void run() {
+			try {
+				Thread.sleep(1000);
+				Bundle timeBundle = new Bundle();
+				int time=player.getCurrentPosition();
+				//Log.i("liveabc","time is :"+time);
+				timeBundle.putInt("time",time );
+				Message msg = new Message();
+				msg.setData(timeBundle);
+
+				mHandler.sendMessage(msg);
+
+				super.run();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -73,8 +115,12 @@ public class AudioClass extends Activity {
 		super.onCreate(savedInstanceState);
 		Log.i("liveabc","Audio class startting");
 		setContentView(R.layout.activity_audio_class);
- 		player = new MediaPlayer();//use mediaplayer for audio and video
-		Intent intent=getIntent();
+		txtView=(TextView) findViewById(R.id.lessontextView);
+		viView= (VideoView)findViewById(R.id.videoView1); 
+		btnPlay=(Button)findViewById(R.id.butStart);
+		btnPause=(Button)findViewById(R.id.butPause);
+		player = new MediaPlayer();//use mediaplayer for audio and video
+		Intent intent=getIntent();//get what the lesson select from user
 		Bundle b=intent.getExtras();
 		m_index=b.getInt("index");
 		m_bAudio=b.getBoolean("bAudio");
@@ -82,10 +128,43 @@ public class AudioClass extends Activity {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
 			getActionBar().setTitle("Lesson"+m_index);
 		}//make sure older version of android 
-		txtView=(TextView) findViewById(R.id.lessontextView);
-		viView= (VideoView)findViewById(R.id.videoView1); 
-		btnPlay=(Button)findViewById(R.id.butStart);
-		btnPause=(Button)findViewById(R.id.butPause);
+		
+		
+		if(m_bAudio){
+			txtView.setVisibility(View.VISIBLE);
+			txtView.append("==========Audio Class: "+m_index+"\n");	
+			//float fontsize=txtView.getTextSize();
+			if(bfontSizeBig)
+				txtView.setTextSize(25);
+			else
+				txtView.setTextSize(22);			
+			m_asManger=getAssets();	
+			try
+			{
+			inputStream=m_asManger.open("Lesson"+m_index+"/"+"English.txt");
+			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+			byte[] bytes = new byte[4096];
+			int len;
+			while ((len = inputStream.read(bytes)) > 0){
+			  byteArrayOutputStream.write(bytes, 0, len);
+			}		 
+			 MyStream = new String(byteArrayOutputStream.toByteArray(), "UTF8");
+			}catch (IOException e) {
+				 e.printStackTrace();
+				 MyStream = e.toString();
+				 txtView.append("Open File error");
+			}
+			txtView.setText(MyStream);
+			playAudio();
+		}//if baudio
+		else{
+			txtView.setVisibility(View.INVISIBLE);
+			viView.setVisibility(View.VISIBLE);	
+			playVideo();//playvideo
+			
+		}
+		
+		//===========Event Handling
 		btnPlay.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -111,42 +190,7 @@ public class AudioClass extends Activity {
 			}
 		});
 		
-		if(m_bAudio){
-			txtView.setVisibility(View.VISIBLE);
-			txtView.append("==========Audio Class: "+m_index+"\n");	
-			//float fontsize=txtView.getTextSize();
-			//Log.i("liveavc","fontsize"+fontsize);
-			if(bfontSizeBig)
-				txtView.setTextSize(25);
-			else
-				txtView.setTextSize(22);			
-			//get txtfile form asset
-			m_asManger=getAssets();	
-			try
-			{
-			inputStream=m_asManger.open("Lesson"+m_index+"/"+"English.txt");
-			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-			byte[] bytes = new byte[4096];
-			int len;
-			while ((len = inputStream.read(bytes)) > 0){
-			  byteArrayOutputStream.write(bytes, 0, len);
-			}		 
-			 MyStream = new String(byteArrayOutputStream.toByteArray(), "UTF8");
-			}catch (IOException e) {
-				 // TODO Auto-generated catch block
-				 e.printStackTrace();
-				 MyStream = e.toString();
-				 txtView.append("Open File error");
-			}
-			txtView.setText(MyStream);
-			playAudio();
-		}//if baudio
-		else{
-			txtView.setVisibility(View.INVISIBLE);
-			viView.setVisibility(View.VISIBLE);	
-			playVideo();//playvideo
-			
-		}
+		
 	}
 	
 
@@ -163,7 +207,13 @@ public class AudioClass extends Activity {
 
 	      if(player != null){
 	            player.stop();//stop play while not visible
-	        }       	
+	        }  
+	      if (m_monitorThread != null) {
+	          if (!m_monitorThread.isInterrupted()) {
+	        	  m_monitorThread.interrupt();
+	          }
+	      }
+ 
 	}
 
 
@@ -194,6 +244,8 @@ private void playAudio(){
 	     public void onPrepared(MediaPlayer mp) {
 	    	Log.i("liveabc","start to play"); 
 	        mp.start();
+	        m_monitorThread = new MonitorThread();
+	        m_monitorThread.start();//start a thread to monitor media player progress
 	     }
 	  });
 	 

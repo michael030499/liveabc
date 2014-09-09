@@ -1103,7 +1103,7 @@ containing a value of this type.
         public static final int always=0x7f06000b;
         public static final int beginning=0x7f060011;
         public static final int butPause=0x7f06003f;
-        public static final int butStart=0x7f06003c;
+        public static final int butStart=0x7f06003d;
         public static final int checkBoxVideo=0x7f060041;
         public static final int checkbox=0x7f06002d;
         public static final int collapseActionView=0x7f06000d;
@@ -1122,7 +1122,7 @@ containing a value of this type.
         public static final int image=0x7f060027;
         public static final int imageView1=0x7f060043;
         public static final int item2=0x7f060046;
-        public static final int lessontextView=0x7f06003d;
+        public static final int lessontextView=0x7f06003c;
         public static final int listMode=0x7f060001;
         public static final int listView1=0x7f060040;
         public static final int list_item=0x7f060029;
@@ -2647,7 +2647,7 @@ containing a value of this type.
          */
         public static final int[] MenuView = {
             0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e,
-            0x0101012f, 0x01010130, 0x01010131, 0x01010438
+            0x0101012f, 0x01010130, 0x01010131, 0x0101040c
         };
         /**
           <p>

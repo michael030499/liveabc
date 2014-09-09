@@ -263,7 +263,7 @@ int id activity_chooser_view_content 0x7f060025
 int id always 0x7f06000b
 int id beginning 0x7f060011
 int id butPause 0x7f06003f
-int id butStart 0x7f06003c
+int id butStart 0x7f06003d
 int id checkBoxVideo 0x7f060041
 int id checkbox 0x7f06002d
 int id collapseActionView 0x7f06000d
@@ -282,7 +282,7 @@ int id ifRoom 0x7f06000a
 int id image 0x7f060027
 int id imageView1 0x7f060043
 int id item2 0x7f060046
-int id lessontextView 0x7f06003d
+int id lessontextView 0x7f06003c
 int id listMode 0x7f060001
 int id listView1 0x7f060040
 int id list_item 0x7f060029
@@ -584,7 +584,7 @@ int styleable MenuItem_android_title 7
 int styleable MenuItem_android_titleCondensed 8
 int styleable MenuItem_android_visible 4
 int styleable MenuItem_showAsAction 13
-int[] styleable MenuView { 0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e, 0x0101012f, 0x01010130, 0x01010131, 0x01010438 }
+int[] styleable MenuView { 0x010100ae, 0x0101012c, 0x0101012d, 0x0101012e, 0x0101012f, 0x01010130, 0x01010131, 0x0101040c }
 int styleable MenuView_android_headerBackground 4
 int styleable MenuView_android_horizontalDivider 2
 int styleable MenuView_android_itemBackground 5
