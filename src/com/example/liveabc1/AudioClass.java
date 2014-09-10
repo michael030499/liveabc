@@ -16,8 +16,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,35 +44,86 @@ public class AudioClass extends Activity {
     //private SurfaceHolder holder;
     private Button btnPlay,btnPause;
     private Thread m_monitorThread;
+	private SpannableString m_spString;//for update textString
+	private int m_textLength;//textLength
 	public static boolean bfontSizeBig=false;//decide the font to be big or small size
 
+ 
+//==============================for handle audio player progress	
 	
-    private Handler mHandler = new Handler() {
+	private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            
-            //txtCount.setText(Integer.toString(msg.getData().getInt("count", 0)));
+            StyleSpan[] styleSpans;//for remove hight line text
+            Bundle data = msg.getData();
+            int duration=data.getInt("duration");
+            int time=data.getInt("time");
+			Log.i("liveabc","Get Message"+"duration"+time );  
+			int timeZone=0;
+			int timeZonePre=0;
+			boolean bTimeZoneChange=true;
+			if(time <= (duration/3) ){
+				timeZone=1;
+			}//if time< 	
+			else if ((time<duration/3*2)){
+				timeZone=2;
+			}//else if time<
+			else 
+			{
+				timeZone=3;
+			}
+			if(timeZone!=timeZonePre){//update textView while move to diff time zone		
+
+				timeZonePre=timeZone;
+				switch (timeZone)
+				{
+					case 1:
+						m_spString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD),1, m_textLength/3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+												
+						break;
+					case 2:
+					    styleSpans = m_spString.getSpans(0, m_spString.length(), StyleSpan.class);
+					    for (StyleSpan us : styleSpans) 
+					    	m_spString.removeSpan(us);	
+						m_spString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD),m_textLength/3, m_textLength/3*2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+						
+						break;
+						
+					case 3:
+					   styleSpans = m_spString.getSpans(0, m_spString.length(), StyleSpan.class);
+					    for (StyleSpan us : styleSpans) 
+					    	m_spString.removeSpan(us);	
+
+						m_spString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD),m_textLength/3*2, m_textLength, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);		
+						
+						break;
+						
+				}//switch time zone		
+				txtView.setText(m_spString);
+			}
+			
         }
     };
 
 	
-	class MonitorThread extends Thread {
+	class MonitorThread implements Runnable {
 
 	
 		@Override
 		public void run() {
 			try {
-				Thread.sleep(1000);
 				Bundle timeBundle = new Bundle();
 				int time=player.getCurrentPosition();
-				//Log.i("liveabc","time is :"+time);
-				timeBundle.putInt("time",time );
-				Message msg = new Message();
-				msg.setData(timeBundle);
-
-				mHandler.sendMessage(msg);
-
-				super.run();
+				int during=player.getDuration();
+				timeBundle.putInt("duration",during);
+				while((time+9000) <= during){//time is not procisely 
+					time=player.getCurrentPosition();
+					timeBundle.putInt("time",time );
+					Message msg = new Message();
+					msg.setData(timeBundle);
+					mHandler.sendMessage(msg);//send message to  update UI in  thread
+					Thread.sleep(3000);
+				}
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -79,7 +133,8 @@ public class AudioClass extends Activity {
 		
 		
 	}
-	
+
+
 	
 	
 	@Override
@@ -135,9 +190,9 @@ public class AudioClass extends Activity {
 			txtView.append("==========Audio Class: "+m_index+"\n");	
 			//float fontsize=txtView.getTextSize();
 			if(bfontSizeBig)
-				txtView.setTextSize(25);
+				txtView.setTextSize(15);
 			else
-				txtView.setTextSize(22);			
+				txtView.setTextSize(12);			
 			m_asManger=getAssets();	
 			try
 			{
@@ -155,11 +210,14 @@ public class AudioClass extends Activity {
 				 txtView.append("Open File error");
 			}
 			txtView.setText(MyStream);
+	        m_monitorThread = new Thread(new MonitorThread() );//thread to monitor audio progress
+			m_spString= new SpannableString(txtView.getText()) ;//string to update base on 	audio progress	
+			m_textLength=m_spString.length();
 			playAudio();
 		}//if baudio
 		else{
 			txtView.setVisibility(View.INVISIBLE);
-			viView.setVisibility(View.VISIBLE);	
+			viView.setVisibility(View.VISIBLE);			
 			playVideo();//playvideo
 			
 		}
@@ -233,6 +291,7 @@ public class AudioClass extends Activity {
 
 	
 private void playAudio(){
+
 	AssetFileDescriptor afd;
 	try {
 		afd = getAssets().openFd("Lesson"+m_index+"/"+"audio.mp3");
@@ -244,8 +303,8 @@ private void playAudio(){
 	     public void onPrepared(MediaPlayer mp) {
 	    	Log.i("liveabc","start to play"); 
 	        mp.start();
-	        m_monitorThread = new MonitorThread();
 	        m_monitorThread.start();//start a thread to monitor media player progress
+	        //mHandler.post(m_monitorThread);
 	     }
 	  });
 	 
