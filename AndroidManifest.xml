@@ -24,6 +24,7 @@
         </activity>
         <activity
             android:name=".Lesson"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_lesson" >
         </activity>
         <activity
