@@ -20,9 +20,11 @@ public class LessonAdapter  extends BaseAdapter {
        private String[] m_listItemString;
 	   private static LayoutInflater inflater=null;
 	   private int  selPosition; 
-	   public LessonAdapter (Activity a, String[] lessonString) {
+	   public LessonAdapter (Activity a) {
+//	   public LessonAdapter (Activity a, String[] lessonString) {
 	        activity = a;
-	        m_listItemString=lessonString;
+		    //m_listItemString=lessonString;
+	        m_listItemString=a.getResources().getStringArray(R.array.lesson_list);
 	        inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	    }
 
@@ -55,7 +57,8 @@ public class LessonAdapter  extends BaseAdapter {
 		        selPosition=position+1;
 		        TextView text=(TextView)vi.findViewById(R.id.textView1);
 		        ImageView imageView=(ImageView)vi.findViewById(R.id.imageView1);
-		        text.setText("Lesson"+selPosition);//TBC why it will get NULL some time
+		        text.setText(m_listItemString[position]);
+		       // text.setText("Lesson"+selPosition);//TBC why it will get NULL some time
 		        text.setTextSize(38);
 		       // float temp=text.getTextSize();
 	           // Log.i("liveabc","fontSize"+temp);		        

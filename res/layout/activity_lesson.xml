@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context="${relativePackage}.${activityClass}" >
 
     <!--android:background="@drawable/list_view_selector"  -->        
     <!-- android:background="@drawable/background" -->

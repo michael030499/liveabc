@@ -61,7 +61,6 @@ public class AudioClass extends Activity {
 			Log.i("liveabc","Get Message"+"duration"+time );  
 			int timeZone=0;
 			int timeZonePre=0;
-			boolean bTimeZoneChange=true;
 			if(time <= (duration/3) ){
 				timeZone=1;
 			}//if time< 	
@@ -187,8 +186,6 @@ public class AudioClass extends Activity {
 		
 		if(m_bAudio){
 			txtView.setVisibility(View.VISIBLE);
-			txtView.append("==========Audio Class: "+m_index+"\n");	
-			//float fontsize=txtView.getTextSize();
 			if(bfontSizeBig)
 				txtView.setTextSize(15);
 			else
@@ -319,8 +316,6 @@ private void playAudio(){
 	
 	private void playVideo(){
 		SurfaceHolder holder = viView.getHolder();
-		//holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-
 		holder.addCallback(new SurfaceHolder.Callback() {
 			
 			@Override
@@ -340,7 +335,7 @@ private void playAudio(){
 				    player.setOnPreparedListener(new OnPreparedListener() {
 				 
 				     @Override
-				     public void onPrepared(MediaPlayer mp) {
+				     public void onPrepared(MediaPlayer mp) {//make sure we ready to play
 				    	Log.i("liveabc","start to play"); 
 				        mp.start();
 				     }
@@ -364,10 +359,7 @@ private void playAudio(){
 	}
 	
 
-	private String fileRead(InputStream inputStream){
-		String myStream=null; 		
-		return myStream;
-	}
+
 	
 	
 }

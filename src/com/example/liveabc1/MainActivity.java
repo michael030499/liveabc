@@ -23,13 +23,8 @@ public class MainActivity extends Activity {
 		final VideoView video = (VideoView) findViewById(R.id.videoView1);
         Uri video1 = Uri.parse("android.resource://" + getPackageName() + "/" +com.example.liveabc1.R.raw.live3gp );
 		final  Intent intent =new Intent(MainActivity.this,Lesson.class);
-		
-		   
-		//MediaPlayer player= MediaPlayer.create(this, video1);		//player.start();
-		// play through vide view Load and start the movie
-	    video.setOnTouchListener(new OnTouchListener() {
-		//Intent intent =new Intent(MainActivity.this,Lesson.class);
-			
+
+		video.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				Log.i("liveabc","stop play");
@@ -42,7 +37,6 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onCompletion(MediaPlayer mp) {
-				Log.i("liveabc","video finish");
 				startActivity(intent);
 				// TODO Auto-generated method stub
 				
@@ -52,7 +46,6 @@ public class MainActivity extends Activity {
 	    video.setVideoURI(video1);
 		Log.i("liveabc","video start");
         video.start();
-		Log.i("liveabc","video stop");		
 	
 	}
 

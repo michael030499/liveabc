@@ -21,3 +21,4 @@ TBD
 	1. a thread to read mediaplayer update
 	2. Update text content using SpannableString
 . not allow landscape mode in lesson acitvity ( try android:screenOrientation="portrait")setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);0916
+. ListView item base on resource
